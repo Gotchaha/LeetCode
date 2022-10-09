@@ -179,3 +179,10 @@ Use some pointers to deal pair by pair, it's complex since the nodes are coupled
 Method 1 will cause *Memory Limit Exceeded*.
 Apply method 2, using three pointers. Take care of the head case.
 The issue of odd or even length turns out not to be a problem, just don't need to change the last element.
+
+**[61. Rotate List](https://leetcode.com/problems/rotate-list/)**
+- thinking
+First use one iteration to get the length len of the list. Then k%len will be the exactly rotated place. Finally, pointer operations, in order, let the last node point to the old head(if there is actually rotation); let len-(k%len) node point to nullptr and its next node point become the new head.
+- details
+Make sure the first iteration pointer stop at the last node since we need to change that node's next field.
+- :hourglass: 22min used.
