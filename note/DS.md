@@ -186,3 +186,10 @@ First use one iteration to get the length len of the list. Then k%len will be th
 - details
 Make sure the first iteration pointer stop at the last node since we need to change that node's next field.
 - :hourglass: 22min used.
+
+**[82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/)**
+- thinking
+Use three pointers, one anchor, two probs. Take care of the head case.
+- details
+Make sure anchor pointer's value is always different from former pointer's.
+Use a sentinel at first for convenience of handling head case.
