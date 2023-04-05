@@ -193,3 +193,32 @@ Use three pointers, one anchor, two probs. Take care of the head case.
 - details
 Make sure anchor pointer's value is always different from former pointer's.
 Use a sentinel at first for convenience of handling head case.
+
+**[86. Partition List](https://leetcode.com/problems/partition-list/)**
+- thinking
+Since 
+> You should preserve the original relative order of the nodes in each of the two partitions.
+
+use three pointers to traverse the list, make nodes less than x appear before the nodes greater than or equal to x.
+Take care of the order of operations.
+- details
+Be cautious that you need to make sure what's the initial state of your algorithm should be, and when taking care of the 'preprocessing', different cases should be handled seperately and accurately.
+- review(could have been done by ..)
+[from Discussion](https://leetcode.com/problems/partition-list/solutions/29185/very-concise-one-pass-solution/?orderBy=most_votes)
+```C++
+ListNode *partition(ListNode *head, int x) {
+    ListNode node1(0), node2(0);
+    ListNode *p1 = &node1, *p2 = &node2;
+    while (head) {
+        if (head->val < x)
+            p1 = p1->next = head;
+        else
+            p2 = p2->next = head;
+        head = head->next;
+    }
+    p2->next = NULL;
+    p1->next = node2.next;
+    return node1.next;
+}
+```
+Very inspiring! Seperate the original list into 2 lists where one has nodes less than x, the other has nodes greater than or equal to x, then link them to form the required list.
