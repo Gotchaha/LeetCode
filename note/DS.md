@@ -222,3 +222,13 @@ ListNode *partition(ListNode *head, int x) {
 }
 ```
 Very inspiring! Seperate the original list into 2 lists where one has nodes less than x, the other has nodes greater than or equal to x, then link them to form the required list.
+
+**[92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)**
+- thinking
+> Follow up: Could you do it in one pass?
+
+Use 4 pointers, 1 to keep the node before the left node, 3 to perform reverse while traversing the list to find the right node.
+- details
+Handle different situations seperately by analyzing different conditions that cause 'while' loop to stop is a good strategy.
+It turned out that I had misunderstood the problem, the 'left' and 'right' are position number rather than values of nodes. -> Instead of checking whether val equals to left (or right), use a count and a sentinel.
+About *heap-use-after-free* question, refer to [this](https://stackoverflow.com/questions/65463442/heap-use-after-free-error-in-leetcode-online-judge-but-not-visual-studio).
