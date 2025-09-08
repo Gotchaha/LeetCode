@@ -232,3 +232,11 @@ Use 4 pointers, 1 to keep the node before the left node, 3 to perform reverse wh
 Handle different situations seperately by analyzing different conditions that cause 'while' loop to stop is a good strategy.
 It turned out that I had misunderstood the problem, the 'left' and 'right' are position number rather than values of nodes. -> Instead of checking whether val equals to left (or right), use a count and a sentinel.
 About *heap-use-after-free* question, refer to [this](https://stackoverflow.com/questions/65463442/heap-use-after-free-error-in-leetcode-online-judge-but-not-visual-studio).
+
+**[47. Insertion Sort List](https://leetcode.com/problems/insertion-sort-list/description/)**
+- thinking
+Initially overthought that we need to compare each node with the current one, then realize that we only need to **find the right place** to insert the current node inside the sorted part (so the initial sort is more like Bubble Sort).
+- details
+Implemented in place, notice the edge case at the beginning, a dummy node will help a lot.
+time: $\mathcal{O}(n^2)$
+space: $\mathcal{O}(1)$
