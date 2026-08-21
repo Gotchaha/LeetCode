@@ -1,0 +1,10 @@
+interface:
+  display_name: "LeetCode Prepare C++"
+  short_description: "Scaffold local C++ LeetCode test files"
+  default_prompt: "Use $leetcode-prepare-cpp to scaffold a local C++ file for this LeetCode problem."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "leetcode"
+      description: "Fetch LeetCode problem statements and official C++ snippets"

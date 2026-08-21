@@ -1,0 +1,10 @@
+interface:
+  display_name: "LeetCode Solution Coach"
+  short_description: "Review accepted solutions through guided learning"
+  default_prompt: "Use $leetcode-solution-coach to review my accepted LeetCode solution and guide me through a Feynman check."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "leetcode"
+      description: "Fetch LeetCode problem statements, accepted submissions, source code, and performance reports"
