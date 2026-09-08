@@ -240,3 +240,14 @@ Initially overthought that we need to compare each node with the current one, th
 Implemented in place, notice the edge case at the beginning, a dummy node will help a lot.
 time: $\mathcal{O}(n^2)$
 space: $\mathcal{O}(1)$
+
+**[138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)**
+- thinking
+The principal problem is to locate the `random` pointer of the node, and the copy of this field would be better done in one traversal to get O(n) time complexity. So, I come up with the idea of using a map to store the map of "*(input node)* addr -> index" (with `map[0]` being the `nullptr`), then a vector keeping the map of "index -> *(new node)* addr" (same setting of the `v[0]`), thus in one traversal, we can set the `random` of each new node to be `v[map[it->random]]`.
+- details
+The implementation is a good chance for me to review some of the important knowledge of C++, including the life cycle, the `initializer_list`, etc. I have also made some trivial mistakes but solved after debugging.
+~~time: O(n)~~ Expected time: $\Theta(n)$, worst-case time: $\mathcal{O}(n^2)$
+space: O(n)
+- review
+There is a trick called "interleaving": assume the original node X, we first create the copy of X, X', and insert it after the X in the original list, do this for all X. Then, set the `random` of the copied nodes in one iteration. Finally split the list to get the final list of copied nodes in one iteration. So it gets the auxiliary space $\Theta(1)$, excluding the output list itself and the worst-case time $\mathcal{O}(n)$ since no hash map degeneration.
+See [recording](reviews/P138.md) of using the agent coach skill.
